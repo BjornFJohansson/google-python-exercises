@@ -1,0 +1,8 @@
+Code for Google's Python Class
+Copyright 2010 Google Inc.
+
+This code developed by Nick Parlante
+at Google Inc.
+
+Adapted for Python 3 by Björn Johansson
+at University of Minho
