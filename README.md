@@ -8,8 +8,7 @@ Install Python 3, then obtain a local copy using either option below.
 
 ### Download as a ZIP file
 
-Open [this repository on GitHub](https://github.com/BjornFJohansson/google-python-exercises) and click the green ![Green GitHub Code button](images/github-code-button.png) button above the file list, shown below:
-
+Open [this repository on GitHub](https://github.com/BjornFJohansson/google-python-exercises) and click the green ![Green GitHub Code button](images/github-code-button.png) button above the file list at the top of this page.
 
 
 In the menu that opens, click **Download ZIP**. Extract the downloaded archive, then open a terminal in the extracted folder containing `hello.py` and `README.md`.
