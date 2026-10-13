@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -9,7 +9,7 @@
 import os
 import re
 import sys
-import urllib.request, urllib.parse, urllib.error
+import urllib
 
 """Logpuzzle exercise
 Given an apache logfile, find the puzzle urls and download the images.
@@ -36,7 +36,7 @@ def download_images(img_urls, dest_dir):
   Creates the directory if necessary.
   """
   # +++your code here+++
-  
+
 
 def main():
   args = sys.argv[1:]

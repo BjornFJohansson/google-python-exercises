@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -46,8 +46,9 @@ def extract_names(filename):
   names = []
 
   # Open and read the file.
-  f = open(filename, 'rU')
-  text = f.read()
+  with open(filename, 'rt', encoding='utf-8') as f:
+    text = f.read()
+
   # Could process the file line-by-line, but regex on the whole text
   # at once is even easier.
 
@@ -63,13 +64,13 @@ def extract_names(filename):
   # Extract all the data tuples with a findall()
   # each tuple is: (rank, boy-name, girl-name)
   tuples = re.findall(r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>', text)
-  #print tuples
+  #print(tuples)
 
   # Store data into a dict using each name as a key and that
   # name's rank number as the value.
   # (if the name is already in there, don't add it, since
   # this new rank will be bigger than the previous rank).
-  names_to_rank =  {}
+  names_to_rank = {}
   for rank_tuple in tuples:
     (rank, boyname, girlname) = rank_tuple  # unpack the tuple into 3 vars
     if boyname not in names_to_rank:
@@ -86,7 +87,7 @@ def extract_names(filename):
 
   # Build up result list, one element per line
   for name in sorted_names:
-    names.append(name + " " + names_to_rank[name])
+    names.append(name + ' ' + names_to_rank[name])
 
   return names
   # LAB(replace solution)
@@ -121,9 +122,9 @@ def main():
     text = '\n'.join(names)
 
     if summary:
-      outf = open(filename + '.summary', 'w')
-      outf.write(text + '\n')
-      outf.close()
+      with open(filename + '.summary', 'w', encoding='utf-8') as outf:
+        outf.write(text + '\n')
+        outf.close()
     else:
       print(text)
   # LAB(end solution)

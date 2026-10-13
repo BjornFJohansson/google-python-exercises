@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -28,7 +28,7 @@ def main():
   # which is the script itself.
   args = sys.argv[1:]
   if not args:
-    print("usage: [--todir dir][--tozip zipfile] dir [dir ...]");
+    print('usage: [--todir dir][--tozip zipfile] dir [dir ...]')
     sys.exit(1)
 
   # todir and tozip are either set from command line
@@ -44,12 +44,12 @@ def main():
     tozip = args[1]
     del args[0:2]
 
-  if len(args) == 0:
-    print("error: must specify one or more dirs")
+  if not args: # A zero length array evaluates to "False".
+    print('error: must specify one or more dirs')
     sys.exit(1)
 
   # +++your code here+++
   # Call your functions
-  
-if __name__ == "__main__":
+
+if __name__ == '__main__':
   main()

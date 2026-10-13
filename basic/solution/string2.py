@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4 -tt
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -59,12 +59,12 @@ def front_back(a, b):
   # +++your code here+++
   # LAB(begin solution)
   # Figure out the middle position of each string.
-  a_middle = len(a) // 2
+  a_middle = len(a) // 2  # Use the // operator to perform integer division.
   b_middle = len(b) // 2
   if len(a) % 2 == 1:  # add 1 if length is odd
     a_middle = a_middle + 1
   if len(b) % 2 == 1:
-    b_middle = b_middle + 1 
+    b_middle = b_middle + 1
   return a[:a_middle] + b[:b_middle] + a[a_middle:] + b[b_middle:]
   # LAB(replace solution)
   # return

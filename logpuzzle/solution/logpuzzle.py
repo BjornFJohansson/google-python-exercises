@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -9,7 +9,7 @@
 import os
 import re
 import sys
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
 
 """Logpuzzle exercise
 Given an apache logfile, find the puzzle urls and download the images.
@@ -42,22 +42,22 @@ def read_urls(filename):
   # Store the ulrs into a dict to screen out the duplicates
   url_dict = {}
 
-  f = open(filename)
-  for line in f:
-    # Find the path which is after the GET and surrounded by spaces.
-    match = re.search(r'"GET (\S+)', line)
-    # Above uses \S (upper case S) which is any non-space char
-    # Alternately could use square brackets: "GET ([^ ]+)"
-    # or the ? form: "GET (.+?) "
+  with open(filename) as f:
+    for line in f:
+      # Find the path which is after the GET and surrounded by spaces.
+      match = re.search(r'"GET (\S+)', line)
+      # Above uses \S (upper case S) which is any non-space char
+      # Alternately could use square brackets: "GET ([^ ]+)"
+      # or the ? form: "GET (.+?) "
 
-    if match:
-      path = match.group(1)
-      # Add to dict if it's a special "puzzle" url
-      # (could combine this 'puzzle' check with the above GET extraction)
-      if 'puzzle' in path:
-        url_dict['http://' + host + path] = 1
+      if match:
+        path = match.group(1)
+        # Add to dict if it's a special "puzzle" url
+        # (could combine this 'puzzle' check with the above GET extraction)
+        if 'puzzle' in path:
+          url_dict['http://' + host + path] = 1
 
-  return sorted(list(url_dict.keys()), key=url_sort_key)
+    return sorted(url_dict.keys(), key=url_sort_key)
   # LAB(end solution)
 
 
@@ -74,7 +74,7 @@ def download_images(img_urls, dest_dir):
   if not os.path.exists(dest_dir):
     os.makedirs(dest_dir)
 
-  index = file(os.path.join(dest_dir, 'index.html'), 'w')
+  index = open(os.path.join(dest_dir, 'index.html'), 'w')
   index.write('<html><body>\n')
 
   i = 0

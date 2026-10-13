@@ -1,4 +1,4 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -51,7 +51,7 @@ def word_count_dict(filename):
   """Returns a word/count dict for this filename."""
   # Utility used by count() and Topcount().
   word_count = {}  # Map each word to its count
-  input_file = open(filename, 'r')
+  input_file = open(filename, encoding='utf-8')
   for line in input_file:
     words = line.split()
     for word in words:
@@ -84,7 +84,7 @@ def print_top(filename):
 
   # Each item is a (word, count) tuple.
   # Sort them so the big counts are first using key=get_count() to extract count.
-  items = sorted(list(word_count.items()), key=get_count, reverse=True)
+  items = sorted(word_count.items(), key=get_count, reverse=True)
 
   # Print the first 20
   for item in items[:20]:

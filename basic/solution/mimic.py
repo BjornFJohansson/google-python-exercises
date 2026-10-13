@@ -1,4 +1,4 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -50,7 +50,7 @@ def mimic_dict(filename):
   # +++your code here+++
   # LAB(begin solution)
   mimic_dict = {}
-  f = open(filename, 'r')
+  f = open(filename, encoding='utf-8')
   text = f.read()
   f.close()
   words = text.split()

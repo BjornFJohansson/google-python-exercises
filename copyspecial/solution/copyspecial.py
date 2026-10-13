@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -6,11 +6,11 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
-import sys
-import re
 import os
+import re
 import shutil
 import subprocess
+import sys
 
 """Copy Special exercise
 """
@@ -42,10 +42,12 @@ def copy_to(paths, to_dir):
 
 def zip_to(paths, zipfile):
   """Zip up all of the given files into a new zip file with the given name."""
-  cmd = 'zip -j ' + zipfile + ' ' + ' '.join(paths)
-  print("Command I'm going to do:" + cmd)
-  (status, output) = subprocess.getstatusoutput(cmd)
-  # If command had a problem (status is non-zero),
+  cmd = ['zip', '-j', zipfile, *paths]
+  print("Command I'm going to do:", cmd)
+  result = subprocess.run(cmd, capture_output=True, text=True)
+  status = result.returncode
+  output = result.stdout + result.stderr
+  # If subprocess had a problem (status is non-zero),
   # print its output to stderr and exit.
   if status:
     sys.stderr.write(output)
@@ -62,7 +64,7 @@ def main():
   # which is the script itself.
   args = sys.argv[1:]
   if not args:
-    print("usage: [--todir dir][--tozip zipfile] dir [dir ...]");
+    print('usage: [--todir dir][--tozip zipfile] dir [dir ...]')
     sys.exit(1)
 
   # todir and tozip are either set from command line
@@ -79,7 +81,7 @@ def main():
     del args[0:2]
 
   if len(args) == 0:
-    print("error: must specify one or more dirs")
+    print('error: must specify one or more dirs')
     sys.exit(1)
 
   # +++your code here+++
