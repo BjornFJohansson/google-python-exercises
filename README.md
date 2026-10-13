@@ -2,6 +2,39 @@
 
 This folder contains the exercises downloaded from [Google's Python Class](https://developers.google.com/edu/python), a free course created by Nick Parlante at Google. The course combines written lessons, videos and exercises, progressing from strings and lists to files, regular expressions and external programs.
 
+## How to use this repository
+
+Install Python 3, then obtain a local copy using either option below.
+
+### Download as a ZIP file
+
+Open [this repository on GitHub](https://github.com/BjornFJohansson/google-python-exercises) and click the green ![Green GitHub Code button](images/github-code-button.png) button above the file list, shown below:
+
+
+
+In the menu that opens, click **Download ZIP**. Extract the downloaded archive, then open a terminal in the extracted folder containing `hello.py` and `README.md`.
+
+### Clone with Git
+
+If Git is installed, run:
+
+```bash
+git clone https://github.com/BjornFJohansson/google-python-exercises.git
+cd google-python-exercises
+```
+
+With either method, check your Python installation from that folder:
+
+```bash
+python3 hello.py
+```
+
+On Windows, use `python` instead of `python3` if that is the name of your Python executable. Open the exercise files in your editor, complete their placeholders, and run them from the terminal. For example:
+
+```bash
+python3 basic/string1.py
+```
+
 ## Suggested exercise order
 
 Follow the progression in [Google's Python Class](https://developers.google.com/edu/python): setup and introduction, strings, lists and sorting, dictionaries and files, regular expressions, then utilities and HTTP. The [Basic Python Exercises page](https://developers.google.com/edu/python/exercises/basic) groups the first exercises as strings, lists and word counting, with additional practice in `string2.py`, `list2.py` and `mimic.py`. The sequence below places that extra practice immediately after its main exercise.
